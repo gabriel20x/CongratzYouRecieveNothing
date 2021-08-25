@@ -1,0 +1,11 @@
+<mat-paginator [length]="pvu_data.length"
+              [pageSize]="page_size"
+              [pageSizeOptions]="[10, 25, 50, 75, 100]"
+              (page)="handlePage($event)">
+</mat-paginator>
+<div *ngFor="let item of pvu_data | paginate:page_size:page_number" >
+  <div>
+    <a href="https://marketplace.plantvsundead.com/#/farm/{{item._id}}" *ngFor="let tool of item.activeTools" >
+      {{getWater(tool) | date:'d/M, HH:mm:ss z'}}</a>
+  </div>
+</div>
